@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "../../packages/meal-capture"
+    },
+    {
+      "path": "../../packages/api"
+    },
+    {
+      "path": "../../packages/event-feed"
+    },
+    {
+      "path": "../../packages/shared-kernel"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}

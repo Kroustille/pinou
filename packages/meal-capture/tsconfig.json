@@ -4,7 +4,7 @@
   "include": [],
   "references": [
     {
-      "path": "../meal-capture"
+      "path": "../shared-kernel"
     },
     {
       "path": "./tsconfig.lib.json"

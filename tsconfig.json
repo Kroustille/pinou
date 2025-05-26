@@ -4,13 +4,19 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/api"
-    },
-    {
       "path": "./packages/event-feed"
     },
     {
-      "path": "./packages/event-feed"
+      "path": "./packages/meal-capture"
+    },
+    {
+      "path": "./packages/shared-kernel"
+    },
+    {
+      "path": "./apps/server"
+    },
+    {
+      "path": "./packages/api"
     }
   ]
 }

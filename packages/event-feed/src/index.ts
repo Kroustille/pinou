@@ -1,1 +1,1 @@
-export * from './routes/_rabbit_id/get.js'
+export * from './domain/service'
