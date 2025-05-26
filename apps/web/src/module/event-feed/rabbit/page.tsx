@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useGetRabbitEventFeedQuery } from '../infra/query'
+import { useGetRabbitEventFeedQuery } from '../query'
 import { useFoodsQuery } from '../../food-store/infra/query'
 
 export const EventFeedRabbitPage: React.FC = () => {

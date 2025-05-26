@@ -13,12 +13,12 @@ class Ingredient {
   })
   public food_id!: string;
 
-  @prop({ required: true })
+  @prop({ required: true, type: Number })
   public quantity!: number;
 }
 
 class Meal {
-  @prop({ required: true })
+  @prop({ required: true, type: String })
   public date!: string;
 
   @prop({

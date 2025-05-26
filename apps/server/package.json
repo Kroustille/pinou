@@ -67,5 +67,13 @@
         }
       }
     }
+  },
+  "imports": {
+    "#infra/*": {
+      "default": "./dist/apps/server/src/infra/*.js"
+    },
+    "#modules/*": {
+      "default": "./dist/apps/server/src/modules/*.js"
+    }
   }
 }

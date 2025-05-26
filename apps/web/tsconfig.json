@@ -6,6 +6,9 @@
       "path": "../../packages/api"
     },
     {
+      "path": "../../packages/client"
+    },
+    {
       "path": "./tsconfig.app.json"
     }
   ],
