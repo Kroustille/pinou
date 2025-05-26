@@ -57,6 +57,7 @@
     "apps/*"
   ],
   "dependencies": {
+    "@tanstack/react-query": "^5.77.2",
     "@typegoose/typegoose": "^12.16.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
@@ -65,6 +66,6 @@
     "pino": "^9.7.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-router-dom": "6.29.0"
+    "react-router-dom": "^6.30.1"
   }
 }
