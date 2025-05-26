@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { listRabbitsHandler } from '#modules/rabbit-profile/infra/web/handler';
 import { listFoodsHandler } from '#modules/food-store/infra/web/handler';
 import { upsertMealHandler } from '#modules/meal-capture/infra/web/handler';
-import { getRabbitEventFeedHandler } from '#modules/event-feed/infra/web/handler';
+import { getRabbitEventFeedHandler } from '../../routes/event-feed/_rabbit_id'
 
 export const router = (): Router => {
   const r = Router();

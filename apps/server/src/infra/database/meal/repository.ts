@@ -1,10 +1,10 @@
-import { MealRepository } from '#modules/meal-capture/app/repository/meal';
 import { MealEntity } from '@pinou/meal-capture';
 import {
   MealDocument,
   MealModel,
-} from '#modules/meal-capture/infra/database/meal/document';
+} from '#infra/database/meal/document';
 import { MongoGenericRepository } from '#infra/database/generic';
+import { MealRepository } from '@pinou/meal-capture'
 
 export class MongoMealRepository
   extends MongoGenericRepository<typeof MealModel, MealDocument, MealEntity>

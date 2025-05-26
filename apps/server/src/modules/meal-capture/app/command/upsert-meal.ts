@@ -1,5 +1,5 @@
 import { MealEntity } from '@pinou/meal-capture';
-import { MealCaptureFactory } from '#modules/meal-capture/infra/factory';
+import { Factory } from '../../../../factory'
 
 export interface UpsertMealCommandPayload {
   date: string;
@@ -15,7 +15,7 @@ export const upsertMealCommand = async ({
   rabbit_id,
   ingredients,
 }: UpsertMealCommandPayload): Promise<string> => {
-  const meal_repository = MealCaptureFactory.getMealRepository();
+  const meal_repository = Factory.getMealRepository();
 
   const saved_meal = await meal_repository.getMeal({ date, rabbit_id });
   if (saved_meal) {

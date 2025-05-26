@@ -1,11 +1,12 @@
 import { Request, Response } from 'express';
 
-import { buildRabbitFeedEntriesQuery } from '#modules/event-feed/app/query/build-rabbit-feed-entries';
 import {
   GetRabbitEventFeedEntry,
   GetRabbitEventFeedResponse,
 } from '@pinou/api';
 import { RabbitFeedEntry } from '@pinou/event-feed';
+
+import { Factory } from '../../factory'
 
 export const getRabbitEventFeedHandler = async (
   req: Request,
@@ -13,7 +14,7 @@ export const getRabbitEventFeedHandler = async (
 ) => {
   const rabbit_id = req.params.rabbit_id;
 
-  const entries = await buildRabbitFeedEntriesQuery(rabbit_id);
+  const entries = await Factory.getEventFeedModule().queries.buildRabbitFeedEntriesQuery(rabbit_id);
   const response = buildResponse(entries);
 
   res.json(response);

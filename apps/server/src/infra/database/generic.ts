@@ -41,7 +41,7 @@ export abstract class MongoGenericRepository<
     return this.buildEntityFromDocument(document);
   }
 
-  async create(entity: Entity): Promise<string> {
+  async create(entity: Omit<Entity, 'id'>): Promise<string> {
     const document: Document = await this.model.create(entity);
     return document.id.toString();
   }

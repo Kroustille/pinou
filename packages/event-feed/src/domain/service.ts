@@ -1,9 +1,6 @@
 import { MealEntity } from '@pinou/meal-capture'
 
-export interface RabbitFeedEntry {
-  date: string
-  meal: MealEntity
-}
+import { RabbitFeedEntry } from './value/entry'
 
 export const buildRabbitFeedEntries = ({ meals }: { meals: MealEntity[] }): RabbitFeedEntry[] => {
   return meals.map(meal => ({
