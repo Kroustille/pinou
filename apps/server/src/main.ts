@@ -1,5 +1,5 @@
-import { MongoRepository } from '#infra/database/client';
-import { launchServer } from '#infra/web/server';
+import { MongoRepository } from './database/client';
+import { launchServer } from './server';
 
 (async () => {
   const repository = new MongoRepository();

@@ -17,7 +17,7 @@ export const EventFeedRabbitPage: React.FC = () => {
       return <div key={entry.date}>
         {entry.date}
         <ul>
-          {entry.meal.ingredients.map(ingredient => {
+          {entry.meal.ingredients.filter(({quantity}) => Boolean(quantity)).map(ingredient => {
             const food = foods?.find(f => f.id === ingredient.food_id)
             return <li key={ingredient.food_id}>{food?.name ?? 'Not found'} {ingredient.quantity}g</li>
           })}

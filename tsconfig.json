@@ -23,6 +23,12 @@
     },
     {
       "path": "./packages/client"
+    },
+    {
+      "path": "./packages/rabbit-profile"
+    },
+    {
+      "path": "./packages/food-store"
     }
   ]
 }

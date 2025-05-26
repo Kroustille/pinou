@@ -6,11 +6,10 @@
     "rootDir": "src",
     "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
     "paths": {
-      "#infra/*": ["./src/infra/*"],
       "#modules/*": ["./src/modules/*"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "../../packages/shared-kernel/src/logger.ts"],
   "exclude": [
     "out-tsc",
     "dist",
@@ -23,13 +22,19 @@
   ],
   "references": [
     {
-      "path": "../../packages/meal-capture/tsconfig.lib.json"
-    },
-    {
       "path": "../../packages/api/tsconfig.lib.json"
     },
     {
+      "path": "../../packages/food-store/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/rabbit-profile/tsconfig.lib.json"
+    },
+    {
       "path": "../../packages/event-feed/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/meal-capture/tsconfig.lib.json"
     },
     {
       "path": "../../packages/shared-kernel/tsconfig.lib.json"

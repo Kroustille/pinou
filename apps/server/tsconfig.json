@@ -4,13 +4,19 @@
   "include": [],
   "references": [
     {
-      "path": "../../packages/meal-capture"
-    },
-    {
       "path": "../../packages/api"
     },
     {
+      "path": "../../packages/food-store"
+    },
+    {
+      "path": "../../packages/rabbit-profile"
+    },
+    {
       "path": "../../packages/event-feed"
+    },
+    {
+      "path": "../../packages/meal-capture"
     },
     {
       "path": "../../packages/shared-kernel"
