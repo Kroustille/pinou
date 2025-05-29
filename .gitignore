@@ -1,1 +1,6 @@
 data
+node_modules
+apps
+containers
+packages
+.nx

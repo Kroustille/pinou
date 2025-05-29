@@ -8,10 +8,13 @@ services:
     depends_on:
       - web
       - server
+    links:
+      - "web:web"
+      - "server:server"
   web:
     image: sehsyha/pinou-web:latest
     expose:
-      - "3001"
+      - "80"
 
   server:
     image: sehsyha/pinou-server:latest
@@ -19,6 +22,9 @@ services:
       - "3000"
     environment:
       NODE_ENV: production
+      DATABASE_HOST: "database"
+    links:
+      - "database:database"
     depends_on:
       - database
 
