@@ -1,0 +1,12 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY apps/server/dist/package.json .
+COPY apps/server/dist/package-lock.json .
+
+RUN npm install
+
+COPY apps/server/dist ./
+
+CMD ["node", "main.js"]
