@@ -58,7 +58,7 @@ jobs:
           push: true
           no-cache: true
           # push: ${{ github.event_name != 'pull_request' }}
-          tags: sehsyha/pinou-server:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/pinou-server:latest
           
       - name: Build and push web Docker image
         uses: docker/build-push-action@v6
@@ -67,4 +67,4 @@ jobs:
           push: true
           no-cache: true
           # push: ${{ github.event_name != 'pull_request' }}
-          tags: sehsyha/pinou-web:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/pinou-web:latest
