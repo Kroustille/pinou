@@ -16,8 +16,8 @@ jobs:
 
     env:
       REGISTRY: docker.io
-      IMAGE_NAME_SERVER: pinou/server
-      IMAGE_NAME_WEB: pinou/client
+      IMAGE_NAME_SERVER: ${{ secrets.DOCKER_USERNAME }}/pinou-server
+      IMAGE_NAME_WEB: ${{ secrets.DOCKER_USERNAME }}/pinou-web
 
     steps:
       - uses: actions/checkout@v4
@@ -55,9 +55,9 @@ jobs:
       - name: Build and push server Docker image
         run: |
           docker build -f Dockerfile.server -t $REGISTRY/${{ env.IMAGE_NAME_SERVER }}:latest .
-          docker push $REGISTRY/${{ env.IMAGE_NAME_BACK }}:latest
+          docker push ${{ env.IMAGE_NAME_BACK }}:latest
 
       - name: Build and push web Docker image
         run: |
           docker build -f Dockerfile.web -t $REGISTRY/${{ env.IMAGE_NAME_WEB }}:latest .
-          docker push $REGISTRY/${{ env.IMAGE_NAME_WEB }}:latest
+          docker push ${{ env.IMAGE_NAME_WEB }}:latest
