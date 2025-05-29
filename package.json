@@ -2,7 +2,11 @@
   "name": "@pinou/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "create-package-json": "node scripts/create-package-json.js",
+    "build:server": "nx run server:build:production && npm run create-package-json server",
+    "build:web": "nx run web:build:production"
+  },
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",
@@ -62,6 +66,7 @@
     "axios": "^1.9.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "mongoose": "^8.15.0",
     "pino": "^9.7.0",

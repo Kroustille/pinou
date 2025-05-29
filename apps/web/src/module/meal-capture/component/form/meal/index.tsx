@@ -1,7 +1,7 @@
 import React from 'react'
 import { MealCaptureFormMealIngredient } from './ingredient'
 import { CaptureMealRequestMealIngredient, CaptureMealRequestMeal } from '../../../infra/http'
-import { useRabbitsQuery } from '../../../../rabbit-profile/infra/query'
+import { useRabbitsQuery } from '../../../../rabbit-profile/query'
 
 interface Props {
   meal: CaptureMealRequestMeal

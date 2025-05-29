@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { FetchRabbitEventFeedData } from '@pinou/api'
-import { client } from '../../infra'
+import { client } from '../../client'
 
 export const useGetRabbitEventFeedQuery = (rabbit_id?: string) => {
   return useQuery({

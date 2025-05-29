@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { client } from '../../infra'
+import { client } from '../../client'
 import { Food } from '@pinou/api'
 
 export const useFoodsQuery = () => {

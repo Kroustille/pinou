@@ -1,7 +1,7 @@
 import React from 'react'
 import { MealCaptureCaptureForm } from './component/form'
-import { useCaptureMealMutation } from './infra/mutation'
-import { useRabbitsQuery } from '../rabbit-profile/infra/query'
+import { useCaptureMealMutation } from './mutation'
+import { useRabbitsQuery } from '../rabbit-profile/query'
 import { useFoodsQuery } from '../food-store/query'
 
 export const MealCapturePage: React.FC = () => {
