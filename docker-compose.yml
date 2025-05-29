@@ -14,7 +14,7 @@ services:
   web:
     image: sehsyha/pinou-web:latest
     expose:
-      - "80"
+      - "3001"
 
   server:
     image: sehsyha/pinou-server:latest
