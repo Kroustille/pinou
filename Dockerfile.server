@@ -7,6 +7,6 @@ COPY apps/server/dist/package-lock.json .
 
 RUN npm install
 
-COPY apps/server/dist ./
+ADD apps/server/dist/ .
 
 CMD ["node", "main.js"]

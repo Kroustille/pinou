@@ -53,17 +53,18 @@ jobs:
       - name: Build and push server Docker image
         uses: docker/build-push-action@v6
         with:
-          cache-from: type=registry,ref=sehsyha/pinou-server:latest
-          cache-to: type=inline
+          context: .
           file: Dockerfile.server
+          push: true
+          no-cache: true
           # push: ${{ github.event_name != 'pull_request' }}
           tags: sehsyha/pinou-server:latest
           
       - name: Build and push web Docker image
         uses: docker/build-push-action@v6
         with:
-          cache-from: type=registry,ref=sehsyha/pinou-web:latest
-          cache-to: type=inline
           file: Dockerfile.web
+          push: true
+          no-cache: true
           # push: ${{ github.event_name != 'pull_request' }}
           tags: sehsyha/pinou-web:latest
