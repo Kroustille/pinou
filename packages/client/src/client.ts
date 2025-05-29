@@ -1,13 +1,24 @@
 import axios from 'axios'
-import { GetRabbitEventFeedData, GetRabbitEventFeedResponse } from '@pinou/api'
+import { FetchFoodsData, FetchRabbitEventFeedData } from '@pinou/api'
+import { GenericResponse } from '@pinou/api'
 
 export class PinouClient {
-  async fetchRabbitEventFeed(rabbit_id?: string): Promise<GetRabbitEventFeedData> {
-    if (!rabbit_id) {
-      return { entries: [] }
-    }
+  private base_url: string
 
-    const result = await axios.get<GetRabbitEventFeedResponse>(`http://localhost:3001/event-feed/${rabbit_id}`)
+  constructor() {
+    this.base_url = 'http://localhost:3000'
+  }
+
+  async fetchRabbitEventFeed(rabbit_id: string): Promise<FetchRabbitEventFeedData> {
+    return this.get<FetchRabbitEventFeedData>(`event-feed/${rabbit_id}`)
+  }
+
+  async fetchFoods(): Promise<FetchFoodsData> {
+    return this.get<FetchFoodsData>('food')
+  }
+
+  private async get<T extends Record<string, unknown>>(path: string): Promise<T> {
+    const result = await axios.get<GenericResponse<T>>(`${this.base_url}/${path}`)
     if (result.data.status === 'error') {
       throw new Error('error occured')
     }

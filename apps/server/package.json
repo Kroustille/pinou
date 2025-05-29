@@ -67,10 +67,5 @@
         }
       }
     }
-  },
-  "imports": {
-    "#modules/*": {
-      "default": "./dist/apps/server/src/modules/*.js"
-    }
   }
 }

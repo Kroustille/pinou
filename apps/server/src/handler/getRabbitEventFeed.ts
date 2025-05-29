@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 
 import {
-  GetRabbitEventFeedEntry,
-  GetRabbitEventFeedResponse,
+  FetchRabbitEventFeedEntry,
+  FetchRabbitEventFeedResponse,
 } from '@pinou/api';
 import { RabbitFeedEntry } from '@pinou/event-feed';
 
@@ -22,8 +22,8 @@ export const getRabbitEventFeedHandler = async (
 
 const buildResponse = (
   entries: RabbitFeedEntry[]
-): GetRabbitEventFeedResponse => {
-  const response_entries: GetRabbitEventFeedEntry[] = entries
+): FetchRabbitEventFeedResponse => {
+  const response_entries: FetchRabbitEventFeedEntry[] = entries
     .map((entry) => ({
       date: entry.date,
       meal: {

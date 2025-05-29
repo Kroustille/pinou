@@ -1,4 +1,4 @@
-import { useFoodsQuery } from '../../../../../food-store/infra/query'
+import { useFoodsQuery } from '../../../../../food-store/query'
 import { InputNumber } from '../../../../../shared-kernel/components/input/number'
 import { CaptureMealRequestMealIngredient } from '../../../../infra/http'
 

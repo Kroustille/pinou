@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchFoods } from './http'
-import { Food } from '../domain/food'
+import { client } from '../../infra'
+import { Food } from '@pinou/api'
 
 export const useFoodsQuery = () => {
   return useQuery({
     queryKey: ['food'],
     queryFn: async (): Promise<Food[]> => {
-      return fetchFoods()
+      const { foods } = await client.fetchFoods()
+      return foods
     }
   })
 }

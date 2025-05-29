@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetRabbitEventFeedQuery } from '../query'
-import { useFoodsQuery } from '../../food-store/infra/query'
+import { useFoodsQuery } from '../../food-store/query'
 
 export const EventFeedRabbitPage: React.FC = () => {
   const { rabbit_id } = useParams();

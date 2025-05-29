@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { MealCaptureFormMeal } from './meal'
 import { CaptureMealRequest, CaptureMealRequestMeal } from '../../infra/http'
 import { Rabbit } from '../../../rabbit-profile/domain/rabbit'
-import { Food } from '../../../food-store/domain/food'
+import { Food } from '@pinou/api'
 
 interface Props {
   rabbits: Rabbit[]
@@ -18,7 +18,6 @@ export const MealCaptureCaptureForm: React.FC<Props> = ({ rabbits, foods, onSubm
 
   useEffect(() => {
     const date = new Date().toISOString().slice(0, 10);
-    console.log(date)
     const meals: CaptureMealRequestMeal[] = rabbits.map(rabbit => ({
       rabbit_id: rabbit.id,
       ingredients: foods.map(food => ({

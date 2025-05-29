@@ -5,7 +5,7 @@ import cors from 'cors';
 import { router } from './router';
 import { log } from './logger';
 
-const port = 3001;
+const port = 3000;
 
 export const launchServer = () => {
   const http_server = express();

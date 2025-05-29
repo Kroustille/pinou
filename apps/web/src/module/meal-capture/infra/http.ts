@@ -16,5 +16,5 @@ export interface CaptureMealRequestMealIngredient {
 }
 
 export const captureMeal = (request: CaptureMealRequest) => {
-  return axios.put('http://localhost:3001/meal', request)
+  return axios.put('http://localhost:3000/meal', request)
 }

@@ -7,6 +7,6 @@ interface Response {
 }
 
 export const fetchRabbits = async () => {
-  const result = await axios.get<Response>('http://localhost:3001/rabbit')
+  const result = await axios.get<Response>('http://localhost:3000/rabbit')
   return result.data.rabbits
 }
