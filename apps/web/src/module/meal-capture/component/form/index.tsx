@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { MealCaptureFormMeal } from './meal'
-import { CaptureMealRequest, CaptureMealRequestMeal } from '../../infra/http'
-import { Rabbit } from '../../../rabbit-profile/domain/rabbit'
+import { Rabbit, CaptureMealRequest, CaptureMealRequestMeal } from '@pinou/api'
 import { Food } from '@pinou/api'
 
 interface Props {

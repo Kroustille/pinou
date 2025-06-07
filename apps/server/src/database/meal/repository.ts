@@ -15,8 +15,8 @@ export class MongoMealRepository
   }
   
   getMeal(query: {
-    rabbit_id: string;
-    date: string;
+    rabbit_id: string
+    date: Date
   }): Promise<MealEntity | null> {
     return this.findOne({ rabbit_id: query.rabbit_id, date: query.date });
   }

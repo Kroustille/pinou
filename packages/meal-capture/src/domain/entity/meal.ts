@@ -2,7 +2,7 @@ import { BaseEntity, BaseEntityProps } from '@pinou/shared-kernel'
 import { Ingredient } from '../value/food'
 
 type CreateMealProps = BaseEntityProps & {
-  date: string
+  date: Date
   rabbit_id: string
   ingredients: {
     food_id: string
@@ -11,7 +11,7 @@ type CreateMealProps = BaseEntityProps & {
 }
 
 export class MealEntity extends BaseEntity {
-  readonly date: string
+  readonly date: Date
   readonly rabbit_id: string
   readonly ingredients: Ingredient[]
 

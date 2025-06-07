@@ -17,7 +17,7 @@ export const upsertMealHandler = async (req: Request, res: Response) => {
 
   const commands = payload.meals.map((meal) => {
     return Factory.mealCapture().commands.upsertMeal({
-      date: payload.date,
+      date: new Date(payload.date),
       rabbit_id: meal.rabbit_id,
       ingredients: meal.ingredients,
     });

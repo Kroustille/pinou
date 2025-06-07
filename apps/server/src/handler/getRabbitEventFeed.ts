@@ -25,7 +25,7 @@ const buildResponse = (
 ): FetchRabbitEventFeedResponse => {
   const response_entries: FetchRabbitEventFeedEntry[] = entries
     .map((entry) => ({
-      date: entry.date,
+      date: entry.date.toJSON(),
       meal: {
         ingredients: entry.meal.ingredients.map((ingredient) => ({
           food_id: ingredient.food_id,

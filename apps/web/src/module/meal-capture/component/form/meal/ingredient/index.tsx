@@ -1,6 +1,6 @@
 import { useFoodsQuery } from '../../../../../food-store/query'
 import { InputNumber } from '../../../../../shared-kernel/components/input/number'
-import { CaptureMealRequestMealIngredient } from '../../../../infra/http'
+import { CaptureMealRequestMealIngredient } from '@pinou/api'
 
 interface Props {
   rabbit_id: string

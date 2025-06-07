@@ -18,8 +18,8 @@ class Ingredient {
 }
 
 class Meal {
-  @prop({ required: true, type: String })
-  public date!: string;
+  @prop({ required: true, type: Date })
+  public date!: Date;
 
   @prop({
     required: true,
