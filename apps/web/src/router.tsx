@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { MealCapturePage } from './module/meal-capture/page'
-import { EventFeedRabbitPage } from './module/event-feed/rabbit/page'
+import { PageMealCapture } from './page/capture-meal'
+import { PageRabbitEventFeed } from './page/rabbit/event-feed'
 import { Root } from './root'
-import { IndexPage } from './page'
+import { PageIndex } from './page'
 
 export const router = createBrowserRouter([
 {
@@ -11,15 +11,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <IndexPage />
+        element: <PageIndex />
       },
       {
         path: 'capture-meal',
-        element: <MealCapturePage />
+        element: <PageMealCapture />
       },
       {
         path: 'rabbit/:rabbit_id',
-        element: <EventFeedRabbitPage />
+        element: <PageRabbitEventFeed />
       }
     ]
   }

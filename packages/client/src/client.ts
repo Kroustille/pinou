@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GenericResponse, CaptureMealRequest, FetchFoodsData, FetchRabbitEventFeedData, FetchRabbitsData } from '@pinou/api'
+import { GenericResponse, CaptureMealRequest, FetchFoodsData, FetchRabbitEventFeedData, FetchRabbitsData, FetchEventFeedData } from '@pinou/api'
 
 export class PinouClient {
   private base_url: string
@@ -10,6 +10,10 @@ export class PinouClient {
 
   async fetchRabbits(): Promise<FetchRabbitsData> {
     return this.get<FetchRabbitsData>('rabbit')
+  }
+
+  async fetchEventFeed(): Promise<FetchEventFeedData> {
+    return this.get<FetchEventFeedData>(`event-feed`)
   }
 
   async fetchRabbitEventFeed(rabbit_id: string): Promise<FetchRabbitEventFeedData> {

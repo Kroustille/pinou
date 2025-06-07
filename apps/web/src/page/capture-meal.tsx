@@ -1,10 +1,10 @@
 import React from 'react'
-import { MealCaptureCaptureForm } from './component/form'
-import { useCaptureMealMutation } from './mutation'
-import { useRabbitsQuery } from '../rabbit-profile/query'
-import { useFoodsQuery } from '../food-store/query'
+import { MealCaptureCaptureForm } from '../module/meal-capture/component/form'
+import { useCaptureMealMutation } from '../module/meal-capture/mutation'
+import { useRabbitsQuery } from '../module/rabbit-profile/query'
+import { useFoodsQuery } from '../module/food-store/query'
 
-export const MealCapturePage: React.FC = () => {
+export const PageMealCapture: React.FC = () => {
   const { data: rabbits } = useRabbitsQuery()
   const { data: foods } = useFoodsQuery()
   const mutation = useCaptureMealMutation()

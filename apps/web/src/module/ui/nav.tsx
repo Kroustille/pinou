@@ -21,6 +21,7 @@ export const Nav: React.FC = () => {
 
     <h2>Fonctionnalités</h2>
     <ul>
+      <li><Link to="/">Accueil</Link></li>
       <li><Link to="/capture-meal">Enregistrer un repas</Link></li>
     </ul>
   </nav>

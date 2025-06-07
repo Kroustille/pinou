@@ -1,4 +1,5 @@
 import { GenericResponse } from '../generic.js'
+import { EventFeedMeal } from './fetch-event-feed.js'
 
 export type FetchRabbitEventFeedData = {
   entries: FetchRabbitEventFeedEntry[]
@@ -8,10 +9,5 @@ export type FetchRabbitEventFeedResponse = GenericResponse<FetchRabbitEventFeedD
 
 export interface FetchRabbitEventFeedEntry {
   date: string
-  meal: {
-    ingredients: {
-      food_id: string
-      quantity: number
-    }[]
-  }
+  meal: EventFeedMeal
 }

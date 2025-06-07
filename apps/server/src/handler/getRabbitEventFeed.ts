@@ -24,6 +24,7 @@ const buildResponse = (
   entries: RabbitFeedEntry[]
 ): FetchRabbitEventFeedResponse => {
   const response_entries: FetchRabbitEventFeedEntry[] = entries
+    .sort((a, b) => b.date.getTime() - a.date.getTime())
     .map((entry) => ({
       date: entry.date.toJSON(),
       meal: {
@@ -33,7 +34,6 @@ const buildResponse = (
         })),
       },
     }))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return {
     status: 'success',

@@ -1,5 +1,6 @@
 import React from 'react'
+import { EventFeedRabbitsFeed } from '../module/event-feed/rabbits/feed'
 
-export const IndexPage: React.FC = () => {
-  return <h1>Welcome on our wonderful Pinou application</h1>
+export const PageIndex: React.FC = () => {
+  return <EventFeedRabbitsFeed />
 }

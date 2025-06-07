@@ -1,5 +1,5 @@
 import { useFoodsQuery } from '../../../../../food-store/query'
-import { InputNumber } from '../../../../../shared-kernel/components/input/number'
+import { InputNumber } from '../../../../../ui/input/number'
 import { CaptureMealRequestMealIngredient } from '@pinou/api'
 
 interface Props {

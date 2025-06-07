@@ -21,13 +21,8 @@ export class MongoMealRepository
     return this.findOne({ rabbit_id: query.rabbit_id, date: query.date });
   }
 
-  async listRabbitMeals(query: { rabbit_id: string }): Promise<MealEntity[]> {
-    const meal_documents = await this.model.find({
-      rabbit_id: query.rabbit_id,
-    });
-    return meal_documents.map((meal_document) =>
-      this.buildEntityFromDocument(meal_document)
-    );
+  async listMeals(query: { rabbit_id?: string }): Promise<MealEntity[]> {
+    return this.find(query.rabbit_id ? { rabbit_id: query.rabbit_id }: {});
   }
 
   protected buildEntityFromDocument(document: MealDocument): MealEntity {

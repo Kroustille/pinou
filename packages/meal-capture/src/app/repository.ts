@@ -7,5 +7,5 @@ export type MealRepository = GenericRepository<MealEntity> & {
     rabbit_id: string;
     date: Date;
   }): Promise<MealEntity | null>;
-  listRabbitMeals(query: { rabbit_id: string }): Promise<MealEntity[]>;
+  listMeals(query: { rabbit_id?: string }): Promise<MealEntity[]>;
 };

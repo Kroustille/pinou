@@ -41,6 +41,11 @@ export abstract class MongoGenericRepository<
     return this.buildEntityFromDocument(document);
   }
 
+  async find(query: mongoose.FilterQuery<Entity>): Promise<Entity[]> {
+    const documents = await this.model.find<Doc>(query)
+    return documents.map(document => this.buildEntityFromDocument(document))
+  }
+
   async create(entity: Omit<Entity, 'id'>): Promise<string> {
     const document: Document = await this.model.create(entity);
     return document.id.toString();
