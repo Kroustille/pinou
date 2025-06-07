@@ -1,6 +1,5 @@
-data
-node_modules
-apps
-containers
-packages
-.nx
+
+*
+!.gitignore
+!docker-compose.yml
+!nginx.conf
