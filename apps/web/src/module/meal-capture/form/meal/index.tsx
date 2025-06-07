@@ -1,7 +1,7 @@
 import React from 'react'
 import { MealCaptureFormMealIngredient } from './ingredient'
 import { CaptureMealRequestMealIngredient, CaptureMealRequestMeal } from '@pinou/api'
-import { useRabbitsQuery } from '../../../../rabbit-profile/query'
+import { useRabbitsQuery } from '../../../rabbit-profile/query'
 
 interface Props {
   meal: CaptureMealRequestMeal

@@ -4,7 +4,6 @@ import { useEventFeedQuery } from '../query'
 
 export const EventFeedRabbitsFeed: React.FC = () => {
   const { data: feed } = useEventFeedQuery()
-
   if (!feed) {
     return <>Loading...</>
   }

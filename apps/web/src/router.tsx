@@ -1,8 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { PageMealCapture } from './page/capture-meal'
-import { PageRabbitEventFeed } from './page/rabbit/event-feed'
+import { PageRabbit } from './page/rabbit'
 import { Root } from './root'
 import { PageIndex } from './page'
+import { PageRabbitNote } from './page/rabbit/note'
 
 export const router = createBrowserRouter([
 {
@@ -19,8 +20,17 @@ export const router = createBrowserRouter([
       },
       {
         path: 'rabbit/:rabbit_id',
-        element: <PageRabbitEventFeed />
-      }
+        children: [
+          {
+            path: '',
+            element: <PageRabbit />
+          },
+          {
+            path: 'note',
+            element: <PageRabbitNote />
+          }
+        ]
+      },
     ]
   }
 ])

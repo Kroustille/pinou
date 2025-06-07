@@ -3,15 +3,22 @@ import { MongoMealRepository } from './database/meal/repository'
 import { EventFeedModule } from '@pinou/event-feed'
 import { RabbitProfileModule } from '@pinou/rabbit-profile'
 import { FoodStoreModule } from '@pinou/food-store'
+import { TextNoteModule } from '@pinou/text-note'
+import { MongoNoteRepository } from './database/note/repository'
 
 export class Factory {
   private static food_store_module: FoodStoreModule
   private static event_feed_module: EventFeedModule
   private static meal_capture_module: MealCaptureModule
   private static rabbit_profile_module: RabbitProfileModule
+  private static text_note_module: TextNoteModule
 
   static mealRepository () {
     return new MongoMealRepository()
+  }
+
+  static noteRepository () {
+    return new MongoNoteRepository()
   }
 
   static foodStore() {
@@ -44,5 +51,13 @@ export class Factory {
     }
     
     return this.rabbit_profile_module
+  }
+
+  static textNote() {
+    if (!this.text_note_module) {
+      this.text_note_module = new TextNoteModule(this.noteRepository())
+    }
+
+    return this.text_note_module
   }
 }

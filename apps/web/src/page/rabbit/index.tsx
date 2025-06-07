@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { EventFeedMealIngredientList } from '../../module/event-feed/meal/ingredient/list'
 import { useRabbitEventFeedQuery } from '../../module/event-feed/query'
 import { useRabbitsQuery } from '../../module/rabbit-profile/query'
 
-export const PageRabbitEventFeed: React.FC = () => {
+export const PageRabbit: React.FC = () => {
   const { rabbit_id } = useParams();
   const { data: rabbits } = useRabbitsQuery()
   const { data: feed } = useRabbitEventFeedQuery(rabbit_id)
@@ -20,6 +20,7 @@ export const PageRabbitEventFeed: React.FC = () => {
 
   return <>
     <h1>{rabbit?.name}</h1>
+    <Link to={`/rabbit/${rabbit?.id}/note`}>Enregistrer une note textuelle</Link>
     {feed.entries.map((entry) => {
       return <article key={entry.date}>
         <h2>{new Date(entry.date).toLocaleDateString()}</h2>

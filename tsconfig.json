@@ -29,6 +29,9 @@
     },
     {
       "path": "./packages/food-store"
+    },
+    {
+      "path": "./packages/text-note"
     }
   ]
 }

@@ -16,6 +16,9 @@
       "path": "../../packages/event-feed"
     },
     {
+      "path": "../../packages/text-note"
+    },
+    {
       "path": "../../packages/meal-capture"
     },
     {

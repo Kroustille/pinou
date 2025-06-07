@@ -1,6 +1,6 @@
-import { useFoodsQuery } from '../../../../../food-store/query'
-import { InputNumber } from '../../../../../ui/input/number'
 import { CaptureMealRequestMealIngredient } from '@pinou/api'
+import { useFoodsQuery } from '../../../../food-store/query'
+import { InputNumber } from '../../../../ui/input/number'
 
 interface Props {
   rabbit_id: string
@@ -18,7 +18,7 @@ export const MealCaptureFormMealIngredient: React.FC<Props> = ({ rabbit_id, ingr
 
   return <div>
     <label htmlFor={forKey}>{food.name}</label>
-    <InputNumber 
+    <InputNumber
       id={forKey} 
       onChange={quantity => onChange({ ...ingredient, quantity })} 
       value={ingredient.quantity}

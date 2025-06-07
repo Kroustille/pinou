@@ -1,5 +1,5 @@
 import React from 'react'
-import { MealCaptureCaptureForm } from '../module/meal-capture/component/form'
+import { MealCaptureCaptureForm } from '../module/meal-capture/form'
 import { useCaptureMealMutation } from '../module/meal-capture/mutation'
 import { useRabbitsQuery } from '../module/rabbit-profile/query'
 import { useFoodsQuery } from '../module/food-store/query'

@@ -5,6 +5,14 @@ export class FoodStoreQueries {
   listFoods(): FoodEntity[] {
     return [
       FoodEntity.create({
+        id: '68444aaf0d11817bc428e841',
+        name: 'Granulés Adulte'
+      }),
+      FoodEntity.create({
+        id: '68444ab4d0afa0d27b500d6f',
+        name: 'Granulés Sensitive'
+      }),
+      FoodEntity.create({
         id: '67f96f49fbdd362833586669',
         name: 'Feuille de chêne',
       }),
