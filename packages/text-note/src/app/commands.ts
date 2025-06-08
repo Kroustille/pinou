@@ -3,8 +3,8 @@ import { NoteRepository } from './repository'
 export class TextNoteCommands {
   constructor(private note_repository: NoteRepository) {}
 
-  async saveNote(payload: { date: Date, content: string }): Promise<string> {
-    const existing_note = await this.note_repository.findByDate(payload.date)
+  async saveNote(payload: { rabbit_id: string, date: Date, content: string }): Promise<string> {
+    const existing_note = await this.note_repository.findByRabbitAndDate(payload.rabbit_id, payload.date)
     if (existing_note) {
       await this.note_repository.update({
         ...existing_note,

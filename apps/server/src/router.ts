@@ -26,7 +26,7 @@ export const router = (): Router => {
 
   // text note routes
   r.put('/note', saveNoteHandler)
-  r.get('/note/:date', getNoteHandler)
+  r.get('/rabbit/:rabbit_id/note/:date', getNoteHandler)
 
   return r;
 };

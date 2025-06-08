@@ -8,7 +8,8 @@ export const getNoteHandler = async (
   res: Response
 ) => {
   const date = req.params.date
-  const note = await Factory.textNote().queries.getNote(new Date(date));
+  const rabbit_id = req.params.rabbit_id
+  const note = await Factory.textNote().queries.getNote({ rabbit_id, date: new Date(date) });
   if (!note) {
     const response: FetchNoteResponse = { status: 'error' }
     res.json(response)

@@ -33,7 +33,7 @@ export class PinouClient {
   }
 
   async fetchNote(request: FetchNoteRequest): Promise<FetchNoteResponseData> {
-    return this.get<FetchNoteResponseData>(`note/${request.date}`)
+    return this.get<FetchNoteResponseData>(`rabbit/${request.rabbit_id}/note/${request.date}`)
   }
 
   private async get<T extends Record<string, unknown>>(path: string): Promise<T> {

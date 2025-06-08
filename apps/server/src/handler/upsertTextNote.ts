@@ -3,8 +3,8 @@ import { Factory } from '../factory'
 import { SaveNoteResponse } from '@pinou/api'
 
 interface UpsertTextNoteHandlerPayload {
-  id?: string
   date: string;
+  rabbit_id: string
   content: string
 }
 

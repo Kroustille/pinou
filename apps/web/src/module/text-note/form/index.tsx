@@ -4,14 +4,15 @@ import { useNoteQuery } from '../query'
 
 interface Props {
   onSubmit: (request: SaveNoteRequest) => void
+  rabbitId: string
 }
 
-export const TextNoteForm: React.FC<Props> = ({ onSubmit }) => {
+export const TextNoteForm: React.FC<Props> = ({ rabbitId, onSubmit }) => {
   const [request, setRequest] = useState<Partial<SaveNoteRequest>>({
     date: new Date().toISOString().slice(0, 10)
   })
 
-  const { data: note } = useNoteQuery(request.date)
+  const { data: note } = useNoteQuery(rabbitId, request.date)
 
   useEffect(() => {
     if (note)  {
@@ -51,7 +52,10 @@ export const TextNoteForm: React.FC<Props> = ({ onSubmit }) => {
 
     const is_request_complete = isRequestComplete(request)
     if (is_request_complete) {
-      onSubmit(request)
+      onSubmit({
+        ...request,
+        rabbit_id: rabbitId
+      })
     }
   }
   

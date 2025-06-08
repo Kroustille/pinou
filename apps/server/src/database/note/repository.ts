@@ -12,9 +12,8 @@ export class MongoNoteRepository
   constructor() {
     super(NoteModel);
   }
-
-  findByDate(date: Date): Promise<NoteEntity | null> {
-    return this.findOne({ date })
+  findByRabbitAndDate(rabbit_id: string, date: Date): Promise<NoteEntity | null> {
+    return this.findOne({ rabbit_id, date })
   }
 
   protected buildEntityFromDocument(document: NoteDocument): NoteEntity {

@@ -13,9 +13,17 @@ export const PageRabbitNote: React.FC = () => {
     return rabbits?.find(({id}) => id === rabbit_id)
   }, [rabbit_id, rabbits])
 
+
+  if (!rabbit_id || !rabbit) {
+    return <h1>Lapin non trouvé</h1>
+  }
+
   return <>
-    <h1>Note pour {rabbit?.name}</h1>
-    <TextNoteForm onSubmit={request => mutate(request)}/>
+    <h1>Note pour {rabbit.name}</h1>
+    <TextNoteForm 
+      rabbitId={rabbit_id}
+      onSubmit={request => mutate(request)}
+    />
     {status}
   </>
 }
