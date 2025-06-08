@@ -1,33 +1,42 @@
 import React, { FormEvent, useEffect, useState } from 'react'
 import { SaveNoteRequest } from '@pinou/api'
+import { useNoteQuery } from '../query'
 
 interface Props {
-  id?: string
-  onDateChange: () => void
   onSubmit: (request: SaveNoteRequest) => void
 }
 
-export const TextNoteForm: React.FC<Props> = ({ id, onDateChange, onSubmit }) => {
-  const [request, setRequest] = useState<Partial<SaveNoteRequest>>({})
+export const TextNoteForm: React.FC<Props> = ({ onSubmit }) => {
+  const [request, setRequest] = useState<Partial<SaveNoteRequest>>({
+    date: new Date().toISOString().slice(0, 10)
+  })
+
+  const { data: note } = useNoteQuery(request.date)
+
+  useEffect(() => {
+    if (note)  {
+      setRequest({ 
+        date: request.date, 
+        content: note.content
+      })
+    } else {
+      setRequest({ 
+        date: request.date, 
+        content: undefined
+      })
+    }
+
+  }, [request.date, note])
+  
   const isRequestComplete = (request: Partial<SaveNoteRequest>): request is SaveNoteRequest => {
     return Boolean(request.date) && Boolean(request.content)
   }
-
-  useEffect(() => {
-    const date = new Date().toISOString().slice(0, 10);
-
-    setRequest({
-      date,
-    })
-  }, [])
 
   const handleChangeDate = (date: string) => {
     setRequest({
       ...request,
       date
     })
-
-    onDateChange()
   }
 
   const handleChangeContent = (content: string) => {
@@ -42,10 +51,7 @@ export const TextNoteForm: React.FC<Props> = ({ id, onDateChange, onSubmit }) =>
 
     const is_request_complete = isRequestComplete(request)
     if (is_request_complete) {
-      onSubmit({
-        ...request,
-        id
-      })
+      onSubmit(request)
     }
   }
   
@@ -63,7 +69,11 @@ export const TextNoteForm: React.FC<Props> = ({ id, onDateChange, onSubmit }) =>
 
     <p>
       <label htmlFor="note-content">Contenu de la note</label>
-      <textarea id="note-content" onChange={(event) => handleChangeContent(event?.target.value)}/>
+      <textarea 
+        id="note-content" 
+        onChange={(event) => handleChangeContent(event?.target.value)} 
+        value={request.content ?? ''}
+      />
     </p>
     <input type="submit" value="Enregistrer" />
   </form>

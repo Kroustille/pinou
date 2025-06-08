@@ -1,7 +1,6 @@
 import { GenericResponse } from '../generic'
 
 export interface SaveNoteRequest {
-  id?: string
   date: string
   content: string
 }

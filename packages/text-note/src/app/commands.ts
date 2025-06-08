@@ -1,17 +1,19 @@
-import { NoteEntity } from '../domain/note'
 import { NoteRepository } from './repository'
 
 export class TextNoteCommands {
   constructor(private note_repository: NoteRepository) {}
 
-  async saveNote(payload: { id?: string, date: Date, content: string }): Promise<string> {
-    const entity = NoteEntity.create({ ...payload, id: payload.id ?? 'fake-id'})
-    
-    if (payload.id) {
-      await this.note_repository.update(entity)
-      return payload.id
-    } 
+  async saveNote(payload: { date: Date, content: string }): Promise<string> {
+    const existing_note = await this.note_repository.findByDate(payload.date)
+    if (existing_note) {
+      await this.note_repository.update({
+        ...existing_note,
+        ...payload
+      })
 
-    return this.note_repository.create(entity)
+      return existing_note.id
+    }
+
+    return this.note_repository.create(payload)
   }
 }

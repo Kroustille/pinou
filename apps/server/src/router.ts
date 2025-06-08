@@ -6,6 +6,7 @@ import { upsertMealHandler } from './handler/upsertMeal';
 import { getRabbitEventFeedHandler } from './handler/getRabbitEventFeed'
 import { getEventFeedHandler } from './handler/getEventFeed'
 import { saveNoteHandler } from './handler/upsertTextNote'
+import { getNoteHandler } from './handler/getNote'
 
 export const router = (): Router => {
   const r = Router();
@@ -25,6 +26,7 @@ export const router = (): Router => {
 
   // text note routes
   r.put('/note', saveNoteHandler)
+  r.get('/note/:date', getNoteHandler)
 
   return r;
 };

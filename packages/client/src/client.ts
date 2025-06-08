@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GenericResponse, CaptureMealRequest, FetchFoodsData, FetchRabbitEventFeedData, FetchRabbitsData, FetchEventFeedData, SaveNoteRequest, SaveNoteResponse, SaveNoteResponseData } from '@pinou/api'
+import { GenericResponse, CaptureMealRequest, FetchFoodsData, FetchRabbitEventFeedData, FetchRabbitsData, FetchEventFeedData, SaveNoteRequest, SaveNoteResponseData, FetchNoteRequest, FetchNoteResponseData } from '@pinou/api'
 
 export class PinouClient {
   private base_url: string
@@ -30,6 +30,10 @@ export class PinouClient {
 
   async saveNote(request: SaveNoteRequest): Promise<SaveNoteResponseData> {
     return this.put<SaveNoteResponseData>('note', request)
+  }
+
+  async fetchNote(request: FetchNoteRequest): Promise<FetchNoteResponseData> {
+    return this.get<FetchNoteResponseData>(`note/${request.date}`)
   }
 
   private async get<T extends Record<string, unknown>>(path: string): Promise<T> {

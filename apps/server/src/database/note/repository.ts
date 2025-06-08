@@ -13,6 +13,10 @@ export class MongoNoteRepository
     super(NoteModel);
   }
 
+  findByDate(date: Date): Promise<NoteEntity | null> {
+    return this.findOne({ date })
+  }
+
   protected buildEntityFromDocument(document: NoteDocument): NoteEntity {
     return NoteEntity.create({
       id: document.id,
